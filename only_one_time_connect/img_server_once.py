@@ -13,7 +13,6 @@ print('Starting up on {} port {}'.format(*server_address))
 # Listen for incoming connections
 sock.listen()
 
-
 while True:
     # Wait for connection
     print('Waiting for a connection')
@@ -28,11 +27,11 @@ while True:
             buffer_size = 2880 * 2880 * 16
             byte_data = connection.recv(buffer_size)
             data = np.load(io.BytesIO(byte_data))
-            num_images +=1
+            num_images += 1
             print('Time: {}  Average: {}'.format(time.time(), np.mean(data)))
     except ValueError:
         pass
     finally:
         connection.close()
         print('{} images received'.format(num_images))
-        print('{} Hz Transmission rate'.format((num_images-1)/(time.time()-t1)))
+        print('{} Hz Transmission rate'.format((num_images - 1) / (time.time() - t1)))

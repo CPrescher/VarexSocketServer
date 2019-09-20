@@ -9,8 +9,6 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', 10000)
 print('connecting to {} port {}'.format(*server_address))
 
-
-
 sock.connect(server_address)
 
 for i in range(50):
